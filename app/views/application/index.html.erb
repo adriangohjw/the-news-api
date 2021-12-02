@@ -10,7 +10,7 @@
   <%= form_with url: root_path, method: :get do |f| %>
     <div class="row">
       <div class="col-2">
-        <%= f.select :type, [['Top stories', 'top']], {}, { class: 'form-control' } %>
+        <%= f.select :type, [['All results', 'all'], ['Top stories', 'top']], {}, { class: 'form-control' } %>
       </div>
       <div class="col-8">
         <%= f.text_field :search, required: true, placeholder: 'Search for news...', class: 'form-control' %>
