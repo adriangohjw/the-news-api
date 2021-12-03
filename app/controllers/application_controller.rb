@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
     case index_params[:type]
     when 'all'
       @response = NewsApiAllNewsQuery.new(
-        search: index_params[:search]
+        search: index_params[:search],
+        category: index_params[:category]
       ).call
     when 'top'
       @response = NewsApiTopStoryQuery.new(
-        search: index_params[:search]
+        search: index_params[:search],
+        category: index_params[:category]
       ).call
     end
   end
@@ -17,7 +19,7 @@ class ApplicationController < ActionController::Base
   def index_params
     case params[:type]
     when 'all', 'top'
-      params.permit(:type, :search)
+      params.permit(:type, :search, :category)
     else
       params
     end

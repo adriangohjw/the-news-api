@@ -14,7 +14,14 @@
                             {},
                             { class: 'form-control' } %>
       </div>
-      <div class="col-8">
+      <div class="col-2">
+        <%= f.select :category, options_for_select({'All'=>''}.merge(Category::OPTIONS.invert), params[:category]),
+                                {},
+                                { class: 'form-control selectpicker' } %>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-10">
         <%= f.text_field :search, required: true,
                                   value: params[:search],
                                   placeholder: 'Search for news...',
